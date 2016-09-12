@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace TakeTwo.Models
+{
+    public static class OptionsCacheFactory
+    {
+        private static OptionsCache cache;
+        public static OptionsCache GetCache()
+        {
+            if(cache != null)
+            {
+                return cache;
+            }
+
+            cache = new OptionsCache();
+            return cache;
+        }
+
+        public static void ResetCache()
+        {
+            cache = new OptionsCache();
+        }
+    }
+}

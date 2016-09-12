@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron text-center">
+    <img src="~/Content/Images/trivia.jpg" class="img-fluid"/>
+    @*<h1>Star Wars Trivia</h1>*@
+    <p class="lead">Pick from the categories below and see how much you know about the Star Wars Universe</p>
+    <p class="lead">Each section has 20 questions</p>
+</div>
+
+<div id="CategorySelect" class="row">
+    <div class="col-md-4 text-center">
+        <button type="button" id="planetsSelection" class="btn btn-info btn-lg">Planets!</button>
+    </div>
+    <div class="col-md-4 text-center">
+        <h2>Score: </h2>
+        <h2 id="Score">0</h2>
+    </div>
+    <div class="col-md-4 text-center">
+        <button type="button" id="speciesSelection" class="btn btn-info btn-lg">Species!</button>
+    </div>
+</div>
+<div class ="text-center" id="GuessingArea">
+    <!-- partial view will be rendered here -->
+</div>
