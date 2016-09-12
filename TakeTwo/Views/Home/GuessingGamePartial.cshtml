@@ -1,32 +1,43 @@
 ﻿@model TakeTwo.Models.TopicCategory
 
+
+@{ if (Model == null) //Make sure we can actually display something
+    {
+        <div class="text-center">
+            <h1>We had issues loading the data. Please refresh the page and try again</h1>
+        </div>
+    }
+    else
+    {
+
 <div class="text-center">
     <h1>
-        @Model.Topic.GetTriviaQuestion()
+        @Model.GetTriviaQuestion()
     </h1>
 </div>
 
 <div class="row">
     <div id="GuessingGame" class="text-center">
         <div id="Category" hidden></div>
-        <div id="DefinitelyNotTheAnswer" hidden>@Model.Topic.Answer</div>
+        <div id="DefinitelyNotTheAnswer" hidden>@Model.Answer</div>
         <div class="col-md-1"></div>
         <div class="text-center col-md-2">
-            <button type="button" class="btn btn-primary guess-options" id="GameShowOption1">@Model.GuessingGameOptions[0].ToString()</button>
+            <button type="button" class="btn btn-primary guess-options" id="GameShowOption1">@Model.GuessingOptions[0].ToString()</button>
         </div>
         <div class="text-center col-md-2">
-            <button type="button" class="btn btn-primary guess-options" id="GameShowOption2">@Model.GuessingGameOptions[1].ToString()</button>
+            <button type="button" class="btn btn-primary guess-options" id="GameShowOption2">@Model.GuessingOptions[1].ToString()</button>
         </div>
         <div class="text-center col-md-2">
-            <button type="button" class="btn btn-primary guess-options" id="GameShowOption3">@Model.GuessingGameOptions[2].ToString()</button>
+            <button type="button" class="btn btn-primary guess-options" id="GameShowOption3">@Model.GuessingOptions[2].ToString()</button>
         </div>
         <div class="text-center col-md-2">
-            <button type="button" class="btn btn-primary guess-options" id="GameShowOption4">@Model.GuessingGameOptions[3].ToString()</button>
+            <button type="button" class="btn btn-primary guess-options" id="GameShowOption4">@Model.GuessingOptions[3].ToString()</button>
         </div>
         <div class="text-center col-md-2">
-            <button type="button" class="btn btn-primary guess-options" id="GameShowOption5">@Model.GuessingGameOptions[4].ToString()</button>
+            <button type="button" class="btn btn-primary guess-options" id="GameShowOption5">@Model.GuessingOptions[4].ToString()</button>
         </div>
         <div class="col-md-1"></div>
     </div>
 </div>
-
+    }
+}

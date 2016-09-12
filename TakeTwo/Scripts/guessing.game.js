@@ -54,7 +54,7 @@
             if (planetFinished) {
                 EndGame();
             }
-            type = "Planet";
+            type = "Planet"; //Switches the category for the user when they exhaust one list
         } else if(planetFinished && type == "Planet") {
             if (speciesFinished) {
                 EndGame();
@@ -62,7 +62,7 @@
             type = "Species";
         }
         
-        if (!planetFinished || !speciesFinished) {
+        if (!planetFinished || !speciesFinished) { //If the user hasn't exhausted their question pool yet
             $.ajax({
                 url: "/Home/LoadRandom".concat(type),
                 type: "GET",

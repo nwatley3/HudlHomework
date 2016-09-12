@@ -10,13 +10,13 @@ namespace TakeTwo.Models
     /// </summary>
     public class OptionsCache
     {
-        public List<int> seenSpecies { get; }
-        public List<int> seenPlanets { get; }
+        public List<int> SeenSpecies { get; }
+        public List<int> SeenPlanets { get; }
 
         public OptionsCache()
         {
-            seenSpecies = new List<int>();
-            seenPlanets = new List<int>();
+            SeenSpecies = new List<int>();
+            SeenPlanets = new List<int>();
         }
     }
 }

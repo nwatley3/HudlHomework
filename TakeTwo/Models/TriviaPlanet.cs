@@ -82,6 +82,7 @@ namespace TakeTwo.Models
             return _actualClimates[0].ToString();
         }
 
+        //Pick 4 incorrect and 1 correct options and scramble their order
         private List<string> GenerateGuessingOptions()
         {
             var options = new List<string>();
@@ -104,7 +105,7 @@ namespace TakeTwo.Models
             }
 
             //This is a really simple shuffle. It's not that random, but it doesn't really need to be
-            return options.OrderBy(a => Guid.NewGuid()).ToList();
+            return options.OrderBy(a => r.Next()).ToList();
         }
     }
 }

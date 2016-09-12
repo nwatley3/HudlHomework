@@ -10,17 +10,24 @@ namespace TakeTwo.Controllers
     {
         public ActionResult Index()
         {
-            OptionsCacheFactory.ResetCache();
+            OptionsCacheFactory.ResetCache(); //Allow the user to play again if they refresh
             return View();
         }
 
         public ActionResult LoadRandomPlanet()
         {
             TopicCategory category = null;
-            SourcePlanet source = Task.Run(StarWarsAccessor.LoadPlanet).Result;
-            if (source != null)
+            try
             {
-                category = new TriviaPlanet(source.name, source.climate.Trim().Split(',').ToList());
+                SourcePlanet source = Task.Run(StarWarsAccessor.LoadPlanet).Result;
+                if (source != null)
+                {
+                    category = new TriviaPlanet(source.name, source.climate.Trim().Split(',').ToList());
+                }
+            }
+            catch //I'm eating these exceptions now, but would be logging them in a production system
+            {
+
             }
 
             return PartialView("GuessingGamePartial", category);
@@ -28,11 +35,18 @@ namespace TakeTwo.Controllers
 
         public ActionResult LoadRandomSpecies()
         {
-            TopicCategory category = null; 
-            SourceSpecies source = Task.Run(StarWarsAccessor.LoadSpecies).Result;
-            if (source != null)
+            TopicCategory category = null;
+            try
             {
-                category = new TriviaSpecies(source.name, source.average_lifespan);
+                SourceSpecies source = Task.Run(StarWarsAccessor.LoadSpecies).Result;
+                if (source != null)
+                {
+                    category = new TriviaSpecies(source.name, source.average_lifespan);
+                }
+            }
+            catch //I'm eating these exceptions now, but would be logging them in a production system
+            {
+
             }
 
             return PartialView("GuessingGamePartial", category);

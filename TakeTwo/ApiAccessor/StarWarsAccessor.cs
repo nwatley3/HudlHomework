@@ -63,11 +63,11 @@ namespace TakeTwo.ApiAccessor
 
             if (type == 0)
             {
-                cache = cacheStore.seenSpecies;
+                cache = cacheStore.SeenSpecies;
             }
             else if (type == 1)
             {
-                cache = cacheStore.seenPlanets;
+                cache = cacheStore.SeenPlanets;
             }
 
             int randomValue;
