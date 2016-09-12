@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// Creates and maintains data on a single question and answer combo
+    /// </summary>
     public class TriviaPlanet : TopicCategory
     {
         private List<PossibleClimates> _actualClimates;

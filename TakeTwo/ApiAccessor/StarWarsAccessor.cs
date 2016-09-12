@@ -6,6 +6,9 @@ using TakeTwo.Models;
 
 namespace TakeTwo.ApiAccessor
 {
+    /// <summary>
+    /// Accessor for the star wars api 
+    /// </summary>
     public static class StarWarsAccessor
     {
         private static string baseUri = "http://swapi.co/api/";

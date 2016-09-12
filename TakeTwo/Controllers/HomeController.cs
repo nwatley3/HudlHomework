@@ -16,34 +16,26 @@ namespace TakeTwo.Controllers
 
         public ActionResult LoadRandomPlanet()
         {
-            GuessingGameOptionCollection model = null;
+            TopicCategory category = null;
             SourcePlanet source = Task.Run(StarWarsAccessor.LoadPlanet).Result;
             if (source != null)
             {
-                TopicCategory category = new TriviaPlanet(source.name, source.climate.Trim().Split(',').ToList());
-                model = new GuessingGameOptionCollection(category);
+                category = new TriviaPlanet(source.name, source.climate.Trim().Split(',').ToList());
             }
 
-            return PartialView("GuessingGamePartial", model);
+            return PartialView("GuessingGamePartial", category);
         }
 
         public ActionResult LoadRandomSpecies()
         {
-            GuessingGameOptionCollection model = null;
+            TopicCategory category = null; 
             SourceSpecies source = Task.Run(StarWarsAccessor.LoadSpecies).Result;
             if (source != null)
             {
-                TopicCategory category = new TriviaSpecies(source.name, source.average_lifespan);
-                model = new GuessingGameOptionCollection(category);
+                category = new TriviaSpecies(source.name, source.average_lifespan);
             }
 
-            return PartialView("GuessingGamePartial", model);
-        }
-
-        public ActionResult Guess(string guess, string score)
-        {
-            ViewBag.Score = score + 1;
-            return PartialView("ScorePartial");
+            return PartialView("GuessingGamePartial", category);
         }
     }
 }

@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// Creates and maintains data on a single question and answer combo
+    /// </summary>
     public class TriviaSpecies : TopicCategory
     {
         private int _actualLifespan;

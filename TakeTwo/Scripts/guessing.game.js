@@ -16,13 +16,13 @@
 
     function setGuessingActionsToo() {
         $(".guess-options").on("click", function () {
-            $(".guess-options").unbind("click");
+            $(".guess-options").unbind("click"); //make sure double clicking isn't possible
 
             score = parseInt($("#Score").text());
             
             if (speciesTicker > 19) {
                 speciesFinished = true;
-                $("#speciesSelection").unbind("click").prop("disabled", true);
+                $("#speciesSelection").unbind("click").prop("disabled", true); //disable the button when the question size has been depleted
             }
 
             if (planetTicker > 19) {
@@ -30,11 +30,11 @@
                 $("#planetsSelection").unbind("click").prop("disabled", true);
             }
 
-            if ($(this).text() == $("#DefinitelyNotTheAnswer").text()) {
+            if ($(this).text() == $("#DefinitelyNotTheAnswer").text()) { //they guessed correctly. Update score
                 $(this).addClass("btn-success").removeClass("btn-primary")
                 $("#Score").text(++score);
-            } else {
-                $(this).addClass("btn-danger").removeClass("btn-primary")
+            } else {                                                     //they guessed incorrectly. Show correct score
+                $(this).addClass("btn-danger").removeClass("btn-primary") 
                 $(".guess-options").each(function (index, value) {
                     if ($(value).text() == $("#DefinitelyNotTheAnswer").text()) {
                         $(this).addClass("btn-success").removeClass("btn-primary")
@@ -45,12 +45,12 @@
 
             setTimeout(function () {
                 loadQuestion($("#Category").text())
-            }, 200);
+            }, 200); //Give user enough time to see the correct answer
         });
     }
 
     function loadQuestion(type) {
-        if (speciesFinished && type == "Species") {
+        if (speciesFinished && type == "Species") { //Makes sure the user hasn't exhausted all questions and finish the game if they have
             if (planetFinished) {
                 EndGame();
             }
@@ -67,13 +67,13 @@
                 url: "/Home/LoadRandom".concat(type),
                 type: "GET",
             })
-            .done(function (partialViewResult) {
+            .done(function (partialViewResult) { //Load more of the same questions
                 $("#GuessingArea").html(partialViewResult);
                 $("#Category").text(type);
                 setGuessingActionsToo();
             });
 
-            if (type == "Species") {
+            if (type == "Species") { 
                 ++speciesTicker;
             } else if (type == "Planet") {
                 ++planetTicker;
@@ -81,7 +81,7 @@
         }
     }
 
-    function EndGame() {
+    function EndGame() { //Show score screen
         $("#GuessingArea").empty();
         $("#GuessingArea").html("<h1>You've scored " + score + " making you a " + scoreNames[Math.floor(score / 4)] + "</h1><h2>Refresh To Play Again</h2>");
     }

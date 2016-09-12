@@ -163,7 +163,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GuessingGameOptionCollection.cs" />
     <Compile Include="Models\OptionsCache.cs" />
     <Compile Include="Models\OptionsCacheFactory.cs" />
     <Compile Include="Models\TriviaPlanet.cs" />

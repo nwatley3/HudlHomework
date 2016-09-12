@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// Base class for our two categories of trivia questions
+    /// </summary>
     public abstract class TopicCategory
     {
         public abstract string GetTriviaQuestion();

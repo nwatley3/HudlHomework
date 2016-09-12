@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// JSON equivalent from the api
+    /// </summary>
     public class SourceSpecies
     {
             public string name { get; set; }

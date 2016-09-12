@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// Factory to create and maintain a cache singleton
+    /// </summary>
     public static class OptionsCacheFactory
     {
         private static OptionsCache cache;

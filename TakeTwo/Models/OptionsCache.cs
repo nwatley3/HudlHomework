@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// Cache for keeping track of what questions a user has seen so far
+    /// </summary>
     public class OptionsCache
     {
         public List<int> seenSpecies { get; }

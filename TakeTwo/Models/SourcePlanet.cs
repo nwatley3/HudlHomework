@@ -5,6 +5,9 @@ using System.Web;
 
 namespace TakeTwo.Models
 {
+    /// <summary>
+    /// JSON equivalent of data from the api
+    /// </summary>
     public class SourcePlanet
     {
         public string name { get; set; }
